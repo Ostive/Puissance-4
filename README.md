@@ -1,2 +1,2 @@
-# PuissanceIV
+# Puissance4
 Jeu
