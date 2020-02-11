@@ -1,8 +1,19 @@
 def match_nul(gril):
-    	if 0 in gril[0]:
-        		return(False)
-   	 else:
-                       if victoire(gril,j1)==false and victoire(gril,j2)==false:
-        		return(True)
-assert match_nul(gril)==False
-assert match_nul(gril)==True
+    if 0 in gril[0]:
+        return(False)
+    else:
+        return(True)
+    
+    assert match_nul([[0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0]])==False
+
+    assert match_nul([[1, 2, 1, 1, 2, 2, 1],
+                  [1, 1, 2, 2, 2, 1, 2],
+                  [2, 2, 2, 1, 1, 2, 1],
+                  [2, 1, 1, 2, 1, 1, 2],
+                  [1, 1, 2, 1, 2, 2, 1],
+                  [0, 0, 0, 0, 0, 0, 0]])==True
