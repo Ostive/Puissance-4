@@ -6,8 +6,8 @@ def diag_bas(gril, j, lig, col):
                 j, un entier avec pour valeur 1 ou 2
                 lig la ligne, entier compris entre 0 et 2
                 col la colonne, entier compris entre 0 et 6
-        Renvoie True si c'est le cas
-""
+        Renvoie True si c'est le cas """
+        
     compteur_1 = 0
     if col > 3 :
             for u in range(4):
