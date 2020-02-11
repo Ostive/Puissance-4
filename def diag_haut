@@ -1,0 +1,49 @@
+def diag_haut(gril, j, lig, col):
+""" Fonction diag_haut(gril, j, lig, col):
+        Détermine si le joueur j réalise un alignement de 4 pions en diagonale ascendante
+        arguments :
+                gril : la grille avec les pions.
+                j, un entier avec pour valeur 1 ou 2
+                lig la ligne, entier compris entre 0 et 2
+                col la colonne, entier compris entre 0 et 6
+        Renvoie True si c'est le cas
+""
+
+    compteur_1 = 0
+    if col > 2 :
+            for u in range(4):
+                    if gril[lig][col] == gril[lig-u][col-u] and gril[lig-u][col-u] == j :
+                        compteur_1 += 1
+                    else:
+                        compteur_1 -= 1
+    elif col <= 2 :
+            for u in range(4):
+                    if gril[lig][col] == gril[lig-u][col+u] and gril[lig-u][col+u] == j :
+                        compteur_1 += 1
+                    else:
+                        compteur_1 -= 1
+    if compteur_1 >= 4 :
+                return(True)
+    else:
+                return(False)
+
+assert diag_haut([[0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0]],1,0,0) == False
+
+assert diag_haut([[0, 2, 0, 1, 0, 0, 0],
+                  [0, 1, 1, 1, 1, 2, 2],
+                  [0, 2, 2, 2, 1, 1, 1],
+                  [2, 1, 1, 2, 2, 2, 1],
+                  [1, 2, 1, 1, 2, 2, 2],
+                  [2, 2, 1, 2, 1, 1, 2]],1,3,6) == True
+
+assert diag_haut([[0, 2, 0, 1, 0, 0, 0],
+                  [0, 1, 2, 1, 1, 2, 2],
+                  [0, 2, 2, 2, 1, 1, 1],
+                  [2, 1, 2, 1, 2, 2, 1],
+                  [1, 2, 1, 2, 2, 2, 2],
+                  [2, 2, 1, 2, 1, 1, 2]],2,5,0) == True
