@@ -1,4 +1,4 @@
-# Puissance0100
+# Puissance4
 Jeu
 def horiz(gril, j, lig, col):
 #gril : la grille de pions; j : le joueur, un entier défini par 1 ou 2 ;
