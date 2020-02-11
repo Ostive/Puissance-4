@@ -1,0 +1,33 @@
+def affiche(gril):
+""" Fonction affiche(gril): affiche une grille de 6 lignes sur 7 colonnes.
+            arguments :
+                Un tableau de 6 x 7
+                           Les lignes sont notées lig, et sont des entiers compris entre 0 et 5,
+        la ligne 0 est située en bas.
+                Les colonnes sont notées col, et sont des entiers compris entre 0 et 6,
+        la colonne 0 est située à gauche.
+    Dans la grille :
+        0 représente une case vide, représentée par un “.”
+        1 représente un pion du joueur 1, représenté par un “x”
+        2-                       du joueur 2,-          -“0”
+""
+    lig,col = len(gril),len(gril[0])
+    print(' ', end = '')
+    for z in range(7):
+            print(z,'', end = '')
+            if z == 6:
+                    print()
+    for i in range(lig):
+            for j in range(col):
+                    if gril[i][j] == 0 :
+                            print('|.',end='')
+                            if j == 6:
+                                print("|")
+                    elif gril[i][j] == 1:
+                            print('|x',end='')
+                            if j == 6:
+                                print("|")
+                    elif gril[i][j] == 2:
+                            print('|0',end='')
+                            if j == 6:
+                                print("|")
