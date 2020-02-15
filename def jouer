@@ -6,7 +6,8 @@ def jouer(gril, j ,col):
                 col une colonne non pleine, un entier compris entre 0 et 6
             Si j = 1, la première case vide de la colonne col prendra la valeur 1
                j = 2,-                                                         -2
-    Renvoie la grille après le coup"""
+    Renvoie la grille après le coup
+    """
     cpt =-1
     if 0 in gril[0]:
         for z in range(6):
