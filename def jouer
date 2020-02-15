@@ -1,0 +1,40 @@
+def jouer(gril, j ,col):
+    """ Fonction jouer(gril, j, col): joue un coup du joueur j dans la colonne col de la grille.
+            arguments :
+                Un tableau de 6 x 7 (ou 5 x 6 avec les indices)
+                j, le joueur : un entier valant 1 ou 2
+                col une colonne non pleine, un entier compris entre 0 et 6
+            Si j = 1, la première case vide de la colonne col prendra la valeur 1
+               j = 2,-                                                         -2
+    Renvoie la grille après le coup"""
+    cpt =-1
+    if 0 in gril[0]:
+        for z in range(6):
+                if gril[z][col] == 0 :
+                    cpt += 1
+        gril[cpt][col] += j
+    return(gril)
+
+assert jouer([[0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0]],1,5) == [[0, 0, 0, 0, 0, 0, 0],
+                                              [0, 0, 0, 0, 0, 0, 0],
+                                              [0, 0, 0, 0, 0, 0, 0],
+                                              [0, 0, 0, 0, 0, 0, 0],
+                                              [0, 0, 0, 0, 0, 0, 0],
+                                              [0, 0, 0, 0, 0, 1, 0]]
+
+assert jouer([[0, 2, 0, 1, 0, 0, 0],
+              [0, 1, 1, 1, 1, 2, 2],
+              [0, 2, 2, 2, 1, 1, 1],
+              [2, 1, 1, 2, 2, 2, 1],
+              [1, 2, 1, 1, 2, 2, 2],
+              [2, 2, 1, 2, 1, 1, 2]],2,0) == [[0, 2, 0, 1, 0, 0, 0],
+                                              [0, 1, 1, 1, 1, 2, 2],
+                                              [2, 2, 2, 2, 1, 1, 1],
+                                              [2, 1, 1, 2, 2, 2, 1],
+                                              [1, 2, 1, 1, 2, 2, 2],
+                                              [2, 2, 1, 2, 1, 1, 2]]
