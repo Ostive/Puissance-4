@@ -1,12 +1,13 @@
 def diag_haut(gril, j, lig, col):
-""" Fonction diag_haut(gril, j, lig, col):
+    """ Fonction diag_haut(gril, j, lig, col):
         Détermine si le joueur j réalise un alignement de 4 pions en diagonale ascendante
         arguments :
                 gril : la grille avec les pions.
                 j, un entier avec pour valeur 1 ou 2
                 lig la ligne, entier compris entre 0 et 2
                 col la colonne, entier compris entre 0 et 6
-        Renvoie True si c'est le cas """
+        Renvoie True si c'est le cas
+    """
 
     compteur_1 = 0
     if col > 2 :
