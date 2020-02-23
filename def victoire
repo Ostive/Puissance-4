@@ -1,0 +1,46 @@
+def victoire(gril, j, lig, col):
+    """ Renvoie True si le joueur j a gagné, False sinon.
+    Fait appel aux fonctions horiz(), vert(), diag_haut() et diag_bas()
+    """
+    cpt_v = 0
+    for lig in range(6):
+            for col in range(7):
+                    if horiz(gril, j, lig, col) == True :
+                            cpt_v +=1
+                    elif vert(gril, j, lig, col) == True :
+                            cpt_v +=1
+                    elif diag_haut(gril, j, lig, col) == True :
+                            cpt_v +=1
+                    elif diag_bas(gril, j, lig, col) == True :
+                            cpt_v +=1
+    if cpt_v > 0 :
+            return(True)
+    else :
+            return(False)
+assert victoire([[0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [2, 0, 0, 0, 0, 0, 0],
+                 [2, 2, 2, 1, 1, 1, 1]], 1, 5, 3) == True
+
+assert victoire([[0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 2, 0, 0, 0],
+                 [0, 0, 2, 1, 0, 0, 0],
+                 [1, 2, 1, 2, 1, 0, 0],
+                 [2, 2, 2, 1, 1, 1, 0]], 2, 5, 0) == True
+
+assert victoire([[0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 2, 0, 0, 0],
+                 [0, 0, 2, 1, 0, 0, 0],
+                 [1, 2, 1, 2, 1, 0, 0],
+                 [2, 2, 2, 1, 1, 1, 0]], 1, 5, 0) == False
+
+assert victoire([[0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 2, 0, 0, 0],
+                 [0, 0, 2, 1, 0, 0, 0],
+                 [1, 2, 1, 2, 1, 0, 0],
+                 [2, 1, 2, 1, 1, 1, 0]], 1, 5, 1) == False
