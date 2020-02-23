@@ -1,27 +1,30 @@
 def diag_bas(gril, j, lig, col):
-    """ Fonction diag_bas(gril, j, lig, col):
-        Détermine si le joueur j réalise un alignement de 4 pions en diagonale descendante
+    """ Détermine si le joueur j aligne 4 pions en diagonale descendante
         arguments :
                 gril : la grille avec les pions.
                 j, un entier avec pour valeur 1 ou 2
                 lig la ligne, entier compris entre 0 et 2
                 col la colonne, entier compris entre 0 et 6
-        Renvoie True si c'est le cas 
+        Renvoie True si c'est le cas
     """
-        
     compteur_1 = 0
-    if col > 3 :
+    
+    if lig >= 0 and lig <= 2 and col >= 0 and col <= 6 :
+        if col > 3 :
             for u in range(4):
-                    if gril[lig][col] == gril[lig+u][col-u] and gril[lig+u][col-u] == j :
+                if gril[lig][col] == gril[lig+u][col-u] and gril[lig+u][col-u] == j:
                             compteur_1 += 1
-                    else:
+                else:
                             compteur_1 -= 1
-    elif col <= 3 :
+        elif col <= 3 :
             for u in range(4):
-                    if gril[lig][col] == gril[lig+u][col+u] and gril[lig+u][col+u] == j :
+                if gril[lig][col] == gril[lig+u][col+u] and gril[lig+u][col+u] == j:
                             compteur_1 += 1
-                    else:
+                else:
                             compteur_1 -= 1
+    else :
+        return(False)
+        
     if compteur_1 >= 4 :
                 return(True)
     else:
