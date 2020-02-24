@@ -9,7 +9,7 @@ def affiche(gril):
     Dans la grille :
         0 représente une case vide, représentée par un “.”
         1 représente un pion du joueur 1, représenté par un “x”
-        2-                       du joueur 2,-          -“0” 
+        2-                   du joueur 2,-                 -“0” 
    """
 
     lig,col = len(gril),len(gril[0])
