@@ -6,6 +6,7 @@ def grille_vide():
        Chaque case est remplie par un 0.
        Renvoie le tableau.
     """
+    
     a=[[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0]]
     return(a)
 
@@ -47,6 +48,7 @@ def coup_possible(gril,col):
 """Détermine si il est possible de jouer dans la colonne col
 Prend en argument la grille, tableau 5x6 avec la position des pions des joeueurs et un entier (numéro de la colonne entre 0 et 6)
 Renvoie True si possible de jouer, False sinon"""
+
     col1=[i[col] for i in gril]
     if 0 in col1:
         return(True)
