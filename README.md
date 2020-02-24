@@ -2,11 +2,10 @@
 Jeu
 
 def grille_vide():
-    """fonction construit un tableau 6*7
-    6 ligne 7 colonne
-    chaque case ==0
-    ne prend pas d'argument
-    renvoie le tableau"""
+    """Fonction construit un tableau 6 lignes sur 7 colonnes.
+       Chaque case est remplie par un 0.
+       Renvoie le tableau.
+    """
     a=[[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0]]
     return(a)
 
