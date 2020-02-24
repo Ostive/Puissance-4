@@ -13,6 +13,10 @@ def affiche(gril):
    """
 
     lig,col = len(gril),len(gril[0])
+    for u in range(15):
+        print('-', end = '')
+        if u == 14 :
+            print()
     print(' ', end = '')
     for z in range(7):
             print(z,'', end = '')
