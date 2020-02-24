@@ -2,11 +2,11 @@
 Jeu
 
 def grille_vide():
-    #fonction construit un tableau 6*7
-    #6 ligne 7 colonne
-    #chaque case ==0
-    #ne prend pas d'argument
-    #renvoie le tableau
+    """fonction construit un tableau 6*7
+    6 ligne 7 colonne
+    chaque case ==0
+    ne prend pas d'argument
+    renvoie le tableau"""
     a=[[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0]]
     return(a)
 
@@ -45,9 +45,9 @@ def affiche(gril):
                             if j == 6:
                                 print("|")
 def coup_possible(gril,col):
-#Détermine si il est possible de jouer dans la colonne col
-#Prend en argument la grille, tableau 5x6 avec la position des pions des joeueurs et un entier (numéro de la colonne entre 0 et 6)
-#Renvoie True si possible de jouer, False sinon
+"""Détermine si il est possible de jouer dans la colonne col
+Prend en argument la grille, tableau 5x6 avec la position des pions des joeueurs et un entier (numéro de la colonne entre 0 et 6)
+Renvoie True si possible de jouer, False sinon"""
     col1=[i[col] for i in gril]
     if 0 in col1:
         return(True)
