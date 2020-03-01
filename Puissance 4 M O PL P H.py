@@ -70,7 +70,7 @@ Renvoie True si possible de jouer, False sinon"""
     cpt = 6
     if 0 in gril[0]:
         for z in range(6):
-                if gril[z][col] == 0 :
+                if gril[-z][col] == 0 :
                     cpt -= 1
         gril[cpt][col] += j
     return(gril)
@@ -239,11 +239,11 @@ def jeu_puissance4():
                 			elif Q == 0 :
                     				col = int(input("Dans quelle colonne jouer ?"))
                     				if coup_possible(gril, col) == True :
-                        					jouer(gril, j, col)
-                        					if victoire(gril, j, lig, col) == True :
+                        				jouer(gril, j, col)
+                        				if victoire(gril, j, lig, col) == True :
                             					affiche(gril)
                             					return('Félicitations Joueur 1, tu as gagné !')
-                        					else:
+                        				else:
                             					affiche(gril)
                     				elif coup_possible(gril, col) == False :
                         					affiche(gril)
@@ -258,21 +258,18 @@ def jeu_puissance4():
                     				coup_aleatoire(gril, j)
                     				if victoire(gril, j, lig, col) == True :
                             				affiche(gril)
-                            				return('Félicitations Joueur 1, tu as gagné !')
+                            				return('Félicitations Joueur 2, tu as gagné !')
                     				else :
-                        					affiche(gril)
-                			
-
-
-elif Q == 0 :
+                        				affiche(gril)
+					elif Q == 0 :
                     				col = int(input("Dans quelle colonne jouer ?"))
                     				if coup_possible(gril, col) == True :
                         					jouer(gril, j, col)
                         					if victoire(gril, j, lig, col) == True :
-                            					affiche(gril)
-                            					return('Félicitations Joueur 2, tu as gagné !')
+                            						affiche(gril)
+                            						return('Félicitations Joueur 2, tu as gagné !')
                         					else :
-                            					affiche(gril)
+                            						affiche(gril)
 
                     				elif coup_possible(gril, col) == False :
                         					affiche(gril)
@@ -280,7 +277,7 @@ elif Q == 0 :
                 			elif Q != 1 and Q != 0 :
                     				affiche(gril)
                     				return("Réponse invalide")
-else :
+	else :
     		return('Match nul ! Recommencez !')
 
             
