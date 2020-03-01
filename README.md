@@ -30,7 +30,8 @@ def affiche(gril):
             print(z,'', end = '')
             if z == 6:
                     print()
-    for i in range(lig):
+    r = [-i for i in range(1,7)]
+    for i in r:
             for j in range(col):
                     if gril[i][j] == 0 :
                             print('|.',end='')
@@ -66,11 +67,11 @@ Renvoie True si possible de jouer, False sinon"""
     Renvoie la grille après le coup
     """
     
-    cpt =-1
+    cpt = 6
     if 0 in gril[0]:
         for z in range(6):
                 if gril[z][col] == 0 :
-                    cpt += 1
+                    cpt -= 1
         gril[cpt][col] += j
     return(gril)
     
@@ -104,7 +105,7 @@ def horiz(gril, j, lig, col):
         arguments :
                 gril : la grille avec les pions.
                 j, un entier avec pour valeur 1 ou 2
-                lig la ligne, entier compris entre 0 et 6
+                lig la ligne, entier compris entre 0 et 2
                 col la colonne, entier compris entre 0 et 6
         Renvoie True si c'est le cas
     """
@@ -112,15 +113,8 @@ def horiz(gril, j, lig, col):
     compteur = 0
     
     if lig <= 2 and lig >= 0 and col >=0 and col <= 6:
-        if lig <= 2 :
             for u in range(4):
                 if gril[lig][col] == gril[lig+u][col] and gril[lig+u][col] == j :
-                        compteur += 1
-                else:
-                        compteur -= 1
-        elif lig > 2 :
-            for u in range(4):
-                if gril[lig][col] == gril[lig-u][col] and gril[lig-u][col] == j :
                         compteur += 1
                 else:
                         compteur -= 1
@@ -132,7 +126,7 @@ def horiz(gril, j, lig, col):
     else:
                 return(False)
                 
- def diag_haut(gril, j, lig, col):
+ def diag_bas(gril, j, lig, col):
     """ Détermine si le joueur j aligne 4 pions en diagonale ascendante
         arguments :
                 gril : la grille avec les pions.
@@ -165,7 +159,7 @@ def horiz(gril, j, lig, col):
     else:
                 return(False)
                 
-   def diag_bas(gril, j, lig, col):
+   def diag_haut(gril, j, lig, col):
     """ Détermine si le joueur j aligne 4 pions en diagonale descendante
         arguments :
                 gril : la grille avec les pions.
