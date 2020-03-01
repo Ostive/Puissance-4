@@ -1,5 +1,5 @@
 #Puissance4 Ostive. Matteo, Pierre-Louis,Henry, Prince
-Jeu
+#Jeu
 
 def grille_vide():
     """Fonction construit un tableau 6 lignes sur 7 colonnes.
