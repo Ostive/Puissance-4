@@ -1,4 +1,4 @@
-#Puissance4
+#Puissance4 Ostive. Matteo, Pierre-Louis,Henry, Prince
 Jeu
 
 def grille_vide():
@@ -217,6 +217,71 @@ def match_nul(gril):
     if 0 in gril[0]:
         return(False)
     else:
-        return(True)            
+        return(True)    
+
+#LE JEU
+def jeu_puissance4():
+	j, tour, lig, col = 0, 1, 0, 0
+	gril = grille_vide()
+	affiche(gril)
+	if match_nul(gril) == False:
+    		for tour in range(1,101) :
+        			if tour % 2 != 0 :
+                			j = 1
+                			Q = int(input('Joueur 1, veux-tu jouer aléatoirement : 1 = Oui / 0 = Non ?'))
+                			if Q == 1 :
+                    				coup_aleatoire(gril, j)
+                    				if victoire(gril, j, lig, col) == True :
+                            				affiche(gril)
+                            				return('Félicitations Joueur 1, tu as gagné !')
+                    				else :
+                        					affiche(gril)
+                			elif Q == 0 :
+                    				col = int(input("Dans quelle colonne jouer ?"))
+                    				if coup_possible(gril, col) == True :
+                        					jouer(gril, j, col)
+                        					if victoire(gril, j, lig, col) == True :
+                            					affiche(gril)
+                            					return('Félicitations Joueur 1, tu as gagné !')
+                        					else:
+                            					affiche(gril)
+                    				elif coup_possible(gril, col) == False :
+                        					affiche(gril)
+                        					return("Vous ne pouvez jouer dans cette colonne")
+                			elif Q != 1 and Q != 0 :
+                    				affiche(gril)
+                    				return("Réponse invalide")
+        			elif tour % 2 == 0 :
+                			j = 2
+                			Q = int(input('Joueur 2, souhaites-tu jouer aléatoirement : 1 = Oui / 0 = Non ?'))
+                			if Q == 1 :
+                    				coup_aleatoire(gril, j)
+                    				if victoire(gril, j, lig, col) == True :
+                            				affiche(gril)
+                            				return('Félicitations Joueur 1, tu as gagné !')
+                    				else :
+                        					affiche(gril)
+                			
+
+
+elif Q == 0 :
+                    				col = int(input("Dans quelle colonne jouer ?"))
+                    				if coup_possible(gril, col) == True :
+                        					jouer(gril, j, col)
+                        					if victoire(gril, j, lig, col) == True :
+                            					affiche(gril)
+                            					return('Félicitations Joueur 2, tu as gagné !')
+                        					else :
+                            					affiche(gril)
+
+                    				elif coup_possible(gril, col) == False :
+                        					affiche(gril)
+                        					return("Vous ne pouvez jouer dans cette colonne")
+                			elif Q != 1 and Q != 0 :
+                    				affiche(gril)
+                    				return("Réponse invalide")
+else :
+    		return('Match nul ! Recommencez !')
+
             
             
