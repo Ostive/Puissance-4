@@ -49,7 +49,7 @@ def coup_possible(gril,col):
 Prend en argument la grille, tableau 5x6 avec la position des pions des joeueurs et un entier (numéro de la colonne entre 0 et 6)
 Renvoie True si possible de jouer, False sinon"""
 
-    col1=[i[col] for i in gril]
+    col1=[gril[i][col] for i in range(len(gril))]
     if 0 in col1:
         return(True)
     else:
@@ -67,11 +67,10 @@ Renvoie True si possible de jouer, False sinon"""
     """
     
     cpt = 6
-    if 0 in gril[0]:
-        for z in range(6):
+    for z in range(6):
                 if gril[-z][col] == 0 :
                     cpt -= 1
-        gril[cpt][col] += j
+    gril[cpt][col] += j
     return(gril)
     
 def horiz(gril, j, lig, col):
@@ -213,7 +212,7 @@ def horiz(gril, j, lig, col):
             
 def match_nul(gril):
 
-    if 0 in gril[0]:
+    if 0 in gril[5]:
         return(False)
     else:
         return(True) 
