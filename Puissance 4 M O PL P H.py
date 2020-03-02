@@ -50,7 +50,7 @@ def coup_possible(gril,col):
 Prend en argument la grille, tableau 5x6 avec la position des pions des joeueurs et un entier (numéro de la colonne entre 0 et 6)
 Renvoie True si possible de jouer, False sinon"""
 
-    col1=[i[col] for i in gril]
+    col1=[gril[i][col] for i in range(len(gril))]
     if 0 in col1:
         return(True)
     else:
@@ -68,11 +68,10 @@ Renvoie True si possible de jouer, False sinon"""
     """
     
     cpt = 6
-    if 0 in gril[0]:
-        for z in range(6):
+    for z in range(6):
                 if gril[-z][col] == 0 :
                     cpt -= 1
-        gril[cpt][col] += j
+    gril[cpt][col] += j
     return(gril)
     
 def horiz(gril, j, lig, col):
@@ -214,10 +213,20 @@ def horiz(gril, j, lig, col):
             
 def match_nul(gril):
 
-    if 0 in gril[0]:
+    if 0 in gril[5]:
         return(False)
     else:
-        return(True)    
+        return(True)
+
+def coup_aleatoire(gril, j):
+    """ Permet de jouer un coup aléatoire pour le joueur j,
+    On supposera que la grille est non pleine,
+    pour éviter une boucle infini
+    """
+    a = randint(0,6)
+    if coup_possible(gril, a) == True :
+            jouer(gril, j, a)
+    return(gril)
 
 #LE JEU
 def jeu_puissance4():
@@ -225,7 +234,7 @@ def jeu_puissance4():
 	gril = grille_vide()
 	affiche(gril)
 	if match_nul(gril) == False:
-    		for tour in range(1,101) :
+    		for tour in range(1,43) :
         			if tour % 2 != 0 :
                 			j = 1
                 			Q = int(input('Joueur 1, veux-tu jouer aléatoirement : 1 = Oui / 0 = Non ?'))
@@ -247,10 +256,10 @@ def jeu_puissance4():
                             					affiche(gril)
                     				elif coup_possible(gril, col) == False :
                         					affiche(gril)
-                        					return("Vous ne pouvez jouer dans cette colonne")
+                        					print("Vous ne pouvez jouer dans cette colonne")
                 			elif Q != 1 and Q != 0 :
                     				affiche(gril)
-                    				return("Réponse invalide")
+                    				print("Réponse invalide")
         			elif tour % 2 == 0 :
                 			j = 2
                 			Q = int(input('Joueur 2, souhaites-tu jouer aléatoirement : 1 = Oui / 0 = Non ?'))
@@ -273,10 +282,13 @@ def jeu_puissance4():
 
                     				elif coup_possible(gril, col) == False :
                         					affiche(gril)
-                        					return("Vous ne pouvez jouer dans cette colonne")
+                        					print("Vous ne pouvez jouer dans cette colonne")
                 			elif Q != 1 and Q != 0 :
                     				affiche(gril)
-                    				return("Réponse invalide")
+                    				print("Réponse invalide")
+						
+		return('Match nul ! Recommencez !')
+	
 	else :
     		return('Match nul ! Recommencez !')
 
